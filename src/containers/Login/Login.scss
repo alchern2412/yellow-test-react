@@ -4,15 +4,30 @@
     justify-content: center;
     align-items: center;
     .login-wrapper {
+        display: flex;
+        flex-direction: column;
+        // justify-content: space-around;
+        align-items: center;
+
         width: 503px;
         height: 379px;
         border-radius: 44px;
         background-color: #e990f9;
 
         .login__icon {
+            margin-top: 77px;
+        }
+        .login__icon-img {
+            width: 160px;
+            height: 150px;
+            background: #fff;
+            mask-image: url("../../img/bear-face.svg");
         }
 
         .login__btn {
+            margin-top: 56px;
         }
     }
 }
+
+
