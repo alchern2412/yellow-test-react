@@ -1,7 +1,42 @@
-html {
-
+@font-face {
+  font-family: "SFUIText";
+  font-style: normal;
+  src: local("SFUIText"), local("SFUIText"), url("./fonts/SFUIText.ttf") format("truetype");
 }
 
-body {
-  // background-color: red;
+html {
+  box-sizing: border-box;
+  font-family: "SFUIText";
+  margin: 0px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+.body {
+  // font-style: normal;
+  // font-size: 16px;
+  // line-height: 1.2;
+  // font-weight: normal;
+  // color: #102746;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapper {
+  max-width: 1060px;
+  margin: 0 auto;
 }
