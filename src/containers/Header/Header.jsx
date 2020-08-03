@@ -17,26 +17,34 @@ const Header = ({
     ]
     return (
         <header className="header">
-            {/* <div className="wrapper"> */}
-                <div className="header__wrapper">
-                    <div className="header__logo">
-                        <Link to="/">
-                            <div  className="header__logo-link" />
-                        </Link>
-                    </div>
-                    <nav className="header__nav">
-                        <ul className="header__list">
-                            {
-                                !loading && isAuthenticated && authLinks.map(link => (
-                                    <li key={link.name} className="header__item">
-                                        <Link to={ link.path } className="header__link">{ link.name }</Link>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </nav>
+            {/* <div className="wrapper"> */ }
+            <div className="header__wrapper">
+                <div className="header__logo">
+                    <Link to="/">
+                        <div className="header__logo-link" />
+                    </Link>
                 </div>
-            {/* </div> */}
+                <nav className="header__nav">
+                    <ul className="header__list">
+                        {
+                            !loading && isAuthenticated
+                                ? <> {
+                                    authLinks.map(link => (
+                                        <li key={ link.name } className="header__item">
+                                            <Link to={ link.path } className="header__link">{ link.name }</Link>
+                                        </li>
+                                    ))
+                                }
+                                    <li className="header__item">
+                                        <div className="header__link header__link-filter"></div>
+                                    </li>
+                                </>
+                                : null
+                        }
+                    </ul>
+                </nav>
+            </div>
+            {/* </div> */ }
         </header>
     )
 }
