@@ -5,6 +5,9 @@ import { Provider } from 'react-redux'
 import store from './store'
 import setAuthToken from './utils/setAuthToken'
 import './App.scss';
+import Header from './containers/Header/Header';
+import { Routes } from './components/routing/Routes';
+import Login from './containers/Login/Login';
 
 
 if (localStorage.token) {
@@ -15,9 +18,9 @@ const App = () => {
   return (
     <Provider store={ store }>
       <Router>
-        <Navbar />
+        <Header />
         <Switch>
-          <Route exact path='/' component={ Landing } />
+          <Route exact path='/' component={ Login } />
           <Route component={ Routes } />
         </Switch>
 
