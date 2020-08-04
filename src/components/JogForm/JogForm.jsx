@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import './JogForm.scss'
 import { useState } from 'react'
@@ -33,6 +34,9 @@ const JogForm = ({
 
     return (
         <div className="jog-form">
+            <Link to="/jogs">
+                <div className="jog-form__cancel"></div>
+            </Link>
             <div className="jog-form__wrapper">
                 <div className="jog-form__fields">
                     <div className="jog-form-field">
