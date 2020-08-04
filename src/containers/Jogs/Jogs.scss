@@ -1,99 +1,139 @@
 .jogs {
-    margin-top: 116px;
-    padding-top: 113px;
-    .jogs__filter {
-        display: flex;
-        justify-content: center;
-        position: fixed;
-        top: 116px;
-        left: 0;
-        width: 100%;
-        background-color: #eaeaea;
-        height: 60px;
-        color: #979797;
+    .jogs__wrapper {
+        padding-top: 110px;
 
-        .jogs__filter-item {
+        .jogs__filter {
             display: flex;
-            align-items: center;
-            margin-right: 45px;
+            justify-content: center;
+            position: fixed;
+            top: 116px;
+            left: 0;
+            width: 100%;
+            background-color: #eaeaea;
+            height: 60px;
+            color: #979797;
 
-            &:last-child {
-                margin-right: 0;
-            }
-
-            .jogs__filter-label {
-                margin-right: 15px;
-                font-size: 13px;
-            }
-
-            .jogs__filter-input {
-                .input {
-                    width: 100px;
-                    height: 31px;
-                    border-radius: 11px;
-                    border: solid 1px #979797;
-                    background-color: #ffffff;
-                }
-            }
-        }
-    }
-
-    .jogs__list {
-        .jogs-item {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-areas: "icon info";
-            gap: 46px;
-            margin-bottom: 78.3px;
-
-            .jogs-item__icon {
-                grid-area: "icon";
-                justify-self: end;
-                width: 87px;
-                height: 87px;
-            }
-
-            .jogs-item__info {
-                grid-area: "info";
+            .jogs__filter-item {
                 display: flex;
-                flex-direction: column;
+                align-items: center;
+                margin-right: 45px;
 
-                .jogs-item__date {
-                    margin-bottom: 9px;
-                    font-size: 14px;
-                    color: #979797;
+                &:last-child {
+                    margin-right: 0;
                 }
-                .jogs-item__params {
-                    display: flex;
-                    margin-bottom: 12px;
 
-                    &:last-child {
-                        margin-bottom: 0;
-                    }
+                .jogs__filter-label {
+                    margin-right: 15px;
+                    font-size: 13px;
+                }
 
-                    .jogs-item__param-label {
-                        margin-right: 4px;
-                        font-size: 14px;
-                        font-weight: 500;
-                    }
-
-                    .jogs-item__param-value {
-                        color: #6c6c6c;
-                        font-size: 14px;
-                        font-weight: 500;
+                .jogs__filter-input {
+                    .input {
+                        width: 100px;
+                        height: 31px;
+                        border-radius: 11px;
+                        border: solid 1px #979797;
+                        background-color: #ffffff;
                     }
                 }
             }
         }
+
+        .jogs__list {
+            .jogs-item {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-areas: "icon info";
+                gap: 46px;
+                margin-bottom: 78.3px;
+
+                .jogs-item__icon {
+                    grid-area: "icon";
+                    justify-self: end;
+                    width: 87px;
+                    height: 87px;
+                }
+
+                .jogs-item__info {
+                    grid-area: "info";
+                    display: flex;
+                    flex-direction: column;
+
+                    .jogs-item__date {
+                        margin-bottom: 9px;
+                        font-size: 14px;
+                        color: #979797;
+                    }
+                    .jogs-item__params {
+                        display: flex;
+                        margin-bottom: 12px;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        .jogs-item__param-label {
+                            margin-right: 4px;
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+
+                        .jogs-item__param-value {
+                            color: #6c6c6c;
+                            font-size: 14px;
+                            font-weight: 500;
+                        }
+                    }
+                }
+            }
+        }
+
+        .jogs__add {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: #7ed321;
+            mask-image: url("../../img/add.svg");
+        }
     }
 
-    .jogs__add {
-        position: fixed;
-        bottom: 40px;
-        right: 40px;
-        width: 60px;
-        height: 60px;
-        background: #7ed321;
-        mask-image: url("../../img/add.svg");
+    .jogs__empty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 240px;
+
+        .jogs__empty-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 141px;
+            .jogs__empty-info-logo {
+                margin-bottom: 47px;
+                width: 150px;
+                height: 150px;
+                background: #9e9c9c;
+                mask-image: url("../../img/sad-rounded-square-emoticon.svg");
+            }
+
+            .jogs__empty-info-text {
+                font-size: 24px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.21;
+                color: #9e9c9c;
+            }
+        }
+
+        .jogs__empty-btn {
+            width: 249px;
+            height: 60px;
+            color: #e990f9;
+            border-radius: 36px;
+            border: solid 3px #e990f9;
+        }
     }
 }
