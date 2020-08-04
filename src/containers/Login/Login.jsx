@@ -1,8 +1,22 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import './Login.scss'
+import auth from '../../reducers/auth'
+import { login } from '../../actions/auth'
 
-const Login = props => {
+const Login = ({
+    isAuthenticated,
+    login
+}) => {
+    const onLogin = () => {
+        console.log('onLogin')
+        login()
+    }
+    if (isAuthenticated) {
+        return <Redirect to="/jogs" />
+    }
     return (
         <div className="login">
             <div className="content">
@@ -11,7 +25,7 @@ const Login = props => {
                         <div className="login__icon-img"></div>
                     </div>
                     <div className="login__btn">
-                        <button className="btn" type="button" value="Let me in">Let me in</button>
+                        <button onClick={(e) => onLogin()} className="btn" type="button" value="Let me in">Let me in</button>
                     </div>
                 </div>
             </div>
@@ -21,7 +35,11 @@ const Login = props => {
 }
 
 Login.propTypes = {
-
+    isAuthenticated: PropTypes.bool.isRequired,
+    login: PropTypes.func.isRequired,
 }
 
-export default Login
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+export default connect(mapStateToProps, { login })(Login)
