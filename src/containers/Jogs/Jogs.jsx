@@ -43,13 +43,16 @@ const Jogs = ({
                                                         <img src={ require('../../img/icon.png') } alt="Jog Icon" />
                                                     </div>
                                                     <div className="jogs-item__info">
-                                                        <div className="jogs-item__date">{ jog.time }</div>
+                                                        <div className="jogs-item__date">
+                                                            <Moment format="DD.MM.YYYY">
+                                                                { jog.date }
+                                                            </Moment>
+                                                        </div>
                                                         <div className="jogs-item__params">
-                                                            <div className="jogs-item__param-label">Date:</div>
+                                                            <div className="jogs-item__param-label">Speed:</div>
                                                             <div className="jogs-item__param-value">
-                                                                <Moment format="YYYY/MM/DD">
-                                                                    { jog.date }
-                                                                </Moment>
+                                                                15
+                                                                
                                                             </div>
                                                         </div>
                                                         <div className="jogs-item__params">

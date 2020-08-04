@@ -7,9 +7,9 @@ const JogForm = ({
     initialData = {
         distance: 0,
         time: 0,
-        date: '2020-08-19'
+        date: new Date().toISOString().substr(0, 10)
     },
-    onSubmit
+    onSubmit,
 }) => {
     const [formData, setFormData] = useState(initialData)
 
@@ -38,13 +38,13 @@ const JogForm = ({
                     <div className="jog-form-field">
                         <div className="jog-form-field__label">Distance</div>
                         <div className="jog-form-field__input">
-                            <input className="input" value={ formData.distance } name="distance" onChange={ e => onChange(e) } className="jog-form__input" type="text" />
+                            <input className="input" type="number" value={ formData.distance } name="distance" onChange={ e => onChange(e) } className="jog-form__input" type="text" />
                         </div>
                     </div>
                     <div className="jog-form-field">
                         <div className="jog-form-field__label">Time</div>
                         <div className="jog-form-field__input">
-                            <input className="input" value={ formData.time } name="time" onChange={ e => onChange(e) } className="jog-form__input" type="text" />
+                            <input className="input" type="number" value={ formData.time } name="time" onChange={ e => onChange(e) } className="jog-form__input" type="text" />
                         </div>
                     </div>
                     <div className="jog-form-field">
