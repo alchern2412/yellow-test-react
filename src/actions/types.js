@@ -1,5 +1,10 @@
 export const USER_LOADED = 'USER_LOADED'
 export const AUTH_ERROR = 'AUTH_ERROR'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+
+export const GET_JOGS = 'GET_JOGS'
+export const ADD_JOG = 'ADD_JOG'
+export const EDIT_JOG = 'EDIT_JOG'
+export const JOG_ERROR = 'JOG_ERROR'
 // export const USER_LOADED = 'USER_LOADED'
-// export const USER_LOADED = 'USER_LOADED'
+

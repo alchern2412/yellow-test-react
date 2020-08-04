@@ -1,61 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Moment from 'react-moment'
 import PropTypes from 'prop-types'
 import './Jogs.scss'
+import { getJogs } from '../../actions/jog'
 
-const Jogs = props => {
-    // const jogs = [
-    //     {
-    //         id: 938,
-    //         user_id: "3",
-    //         "distance": 941313,
-    //         "time": 228,
-    //         "date": 695851277
-    //     },
-    //     {
-    //         id: 940,
-    //         user_id: "3",
-    //         "distance": 1224,
-    //         "time": 134,
-    //         "date": 1592535600
-    //     },
-    //     {
-    //         id: 941,
-    //         user_id: "3",
-    //         "distance": 122,
-    //         "time": 12,
-    //         "date": 0
-    //     },
-    //     {
-    //         id: 942,
-    //         user_id: "3",
-    //         "distance": 12,
-    //         "time": 13,
-    //         "date": 1591239600
-    //     },
-    //     {
-    //         id: 943,
-    //         user_id: "3",
-    //         "distance": 12,
-    //         "time": 13,
-    //         "date": 1339632000
-    //     },
-    //     {
-    //         id: 944,
-    //         user_id: "3",
-    //         "distance": 12,
-    //         "time": 13,
-    //         "date": 1560470400
-    //     },
-    //     {
-    //         id: 946,
-    //         user_id: "3",
-    //         "distance": 12,
-    //         "time": 14,
-    //         "date": 1593475200
-    //     }]
-    const jogs = []
-
+const Jogs = ({
+    jogs,
+    getJogs
+}) => {
+    useEffect(() => {
+        getJogs()
+    }, [])
     return (
         <div className="jogs">
             {
@@ -88,8 +45,12 @@ const Jogs = props => {
                                                     <div className="jogs-item__info">
                                                         <div className="jogs-item__date">{ jog.time }</div>
                                                         <div className="jogs-item__params">
-                                                            <div className="jogs-item__param-label">Speed:</div>
-                                                            <div className="jogs-item__param-value">15</div>
+                                                            <div className="jogs-item__param-label">Date:</div>
+                                                            <div className="jogs-item__param-value">
+                                                                <Moment format="YYYY/MM/DD">
+                                                                    { jog.date }
+                                                                </Moment>
+                                                            </div>
                                                         </div>
                                                         <div className="jogs-item__params">
                                                             <div className="jogs-item__param-label">Distance:</div>
@@ -130,7 +91,11 @@ const Jogs = props => {
 }
 
 Jogs.propTypes = {
-
+    jogs: PropTypes.array.isRequired,
 }
 
-export default Jogs
+const mapStateToProps = state => ({
+    jogs: state.jog.jogs
+})
+
+export default connect(mapStateToProps, { getJogs })(Jogs)
