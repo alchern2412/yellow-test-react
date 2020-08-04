@@ -1,0 +1,52 @@
+.jog-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // flex-direction: column;
+
+    width: 503px;
+    height: 379px;
+    border-radius: 44px;
+    background-color: #7ed321;
+
+    .jog-form__wrapper {
+        display: flex;
+        // justify-content: center;
+        // align-items: center;
+        flex-direction: column;
+        width: 320px;
+
+        .jog-form__fields {
+            margin-bottom: 46px;
+            .jog-form-field {
+                display: flex;
+                justify-content: space-between;
+
+                margin-bottom: 25px;
+                &:last-child {
+                    margin-bottom: 0px;
+                }
+
+                .jog-form-field__label {
+                    font-size: 16px;
+                }
+
+                .jog-form-field__input {
+                    input {
+                        border-radius: 7px;
+                        border: solid 1px #979797;
+                        background-color: #ffffff;
+                        width: 236px;
+                        height: 31px;
+                    }
+                }
+            }
+        }
+
+        .jog-form__btn {
+            width: 100%;
+            height: 42px;
+            border-radius: 25.2px;
+        }
+    }
+}
