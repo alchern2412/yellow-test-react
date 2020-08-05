@@ -20,7 +20,7 @@ html {
 
 a {
   text-decoration: none;
-  color: inherit
+  color: inherit;
   &:hover {
     border: 0;
     
@@ -48,7 +48,7 @@ img {
 
 @media (max-width: 767px) {
   .content-wrapper {
-    padding-top: 56px;
+    padding-top: 77pt;
   } 
 }
 
@@ -67,10 +67,6 @@ img {
   &:focus {
     outline: none;
   }
-
-  // &:hover {
-  //   border-color: #000;
-  // }
 }
 
 .input {

@@ -7,7 +7,7 @@ import setAuthToken from './utils/setAuthToken'
 import { loadUser } from './actions/auth'
 import './App.scss';
 import Header from './containers/Header/Header';
-import { Routes } from './components/routing/Routes';
+import { Routes } from './containers/routing/Routes';
 import Login from './containers/Login/Login';
 
 
