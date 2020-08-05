@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 .jogs {
     .jogs__wrapper {
         display: flex;
@@ -28,7 +30,6 @@
 
                 .jogs__filter-input {
                     .input {
-                        // width: 100px;
                         height: 31px;
                         border-radius: 11px;
                         border: solid 1px #979797;
@@ -40,13 +41,14 @@
 
         .jogs__list {
             margin-top: 53px;
-            
+
             .jogs-item {
                 width: 350px; /*  */
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 grid-template-areas: "icon info";
                 gap: 46px;
+
                 margin-bottom: 78.3px;
 
                 .jogs-item__icon {
@@ -97,8 +99,8 @@
             right: 40px;
             width: 60px;
             height: 60px;
-            background: #7ed321;
-            mask-image: url("../../img/add.svg");
+            background: $apple-green;
+            mask-image: url("../../img/svg/add.svg");
         }
     }
 
@@ -118,7 +120,7 @@
                 width: 150px;
                 height: 150px;
                 background: #9e9c9c;
-                mask-image: url("../../img/sad-rounded-square-emoticon.svg");
+                mask-image: url("../../img/svg/sad-rounded-square-emoticon.svg");
             }
 
             .jogs__empty-info-text {
@@ -137,6 +139,74 @@
             color: #e990f9;
             border-radius: 36px;
             border: solid 3px #e990f9;
+        }
+    }
+}
+
+@media (max-width: 1366px) {
+    .jogs {
+        .jogs__empty {
+            margin-top: 10%;
+
+            .jogs__empty-info {
+                margin-bottom: 15%;
+                .jogs__empty-info-logo {
+                    margin-bottom: 10%;
+                }
+            }
+
+            .jogs__empty-btn {
+                margin-bottom: 10%;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .jogs {
+        .jogs__wrapper {
+            .jogs__filter {
+                .jogs__filter-item {
+                    margin-right: 20px;
+                    .jogs__filter-input {
+                        .input {
+                            font-size: 9pt;
+                            width: 72pt;
+                            height: 31pt;
+                        }
+                    }
+                }
+            }
+
+            .jogs__list {
+                margin: 0 0 50pt 0;
+                width: 100%;
+
+                .jogs-item {
+                    width: 100%;
+                    border-bottom: 1px solid #ccc;
+                    padding: 50px;
+                    margin: 0;
+                    .jogs-item__icon {
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+
+        .jogs__empty {
+            margin-top: 25%;
+
+            .jogs__empty-info {
+                margin-bottom: 30%;
+                .jogs__empty-info-logo {
+                    margin-bottom: 10%;
+                }
+            }
+
+            .jogs__empty-btn {
+                margin-bottom: 10%;
+            }
         }
     }
 }

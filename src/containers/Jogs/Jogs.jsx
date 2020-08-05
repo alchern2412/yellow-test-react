@@ -15,14 +15,10 @@ const Jogs = ({
     setJogsLoading,
     setFilter
 }) => {
-    // todo filter
-
     useEffect(() => {
         getJogs()
         return () => setJogsLoading(true)
     }, [getJogs, setJogsLoading])
-
-    // const [filter, setFilter] = useState({})
 
     const onChange = (e) => {
         const { name, value } = e.target
@@ -58,7 +54,7 @@ const Jogs = ({
                                         <div className="jogs__list">
                                             {
                                                 jogs.map(jog => (
-                                                    <Link key={ jog.id } to={`edit-jog/${jog.id}`}>
+                                                    <Link className="jogs__list-item-wrapper" key={ jog.id } to={ `edit-jog/${jog.id}` }>
                                                         <div className="jogs-item">
                                                             <div className="jogs-item__icon">
                                                                 <img src={ require('../../img/icon.png') } alt="Jog Icon" />
@@ -112,7 +108,6 @@ const Jogs = ({
             </div>
         </div>
     )
-    // }
 
 }
 
