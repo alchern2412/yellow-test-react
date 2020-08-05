@@ -42,8 +42,14 @@ img {
   margin: 0 auto;
 }
 
-.content {
+.content-wrapper {
+  padding-top: 116px;
+} 
 
+@media (max-width: 767px) {
+  .content-wrapper {
+    padding-top: 56px;
+  } 
 }
 
 .btn {
@@ -65,4 +71,8 @@ img {
   // &:hover {
   //   border-color: #000;
   // }
+}
+
+.input {
+  padding: 10px;
 }

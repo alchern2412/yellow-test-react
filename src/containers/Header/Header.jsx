@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './Header.scss'
 import { setFilter } from '../../actions/jog'
+import { useState } from 'react'
 
 const Header = ({
     auth: {
@@ -13,7 +14,7 @@ const Header = ({
     filter: {
         filter
     },
-    setFilter
+    setFilter,
 }) => {
     const authLinks = [
         { name: 'Jogs', path: '/jogs' },
@@ -22,34 +23,51 @@ const Header = ({
     ]
 
     const filterCls = filter ? 'active' : ''
+    const [burgerCls, setBurgerCls] = useState('')
+    const onBurgerClick = () => {
+        if (burgerCls === '') {
+            setBurgerCls('active')
+        } else {
+            setBurgerCls('')
+        }
+    }
+    const onLinkClick = () => {
+        setBurgerCls('')
+    }
 
     return (
-        <header className="header">
+        <header className={ `header ${burgerCls}` }>
             <div className="header__wrapper">
                 <div className="header__logo">
                     <Link to="/">
                         <div className="header__logo-link" />
                     </Link>
                 </div>
-                <nav className="header__nav">
+
+                <nav className={ `header__nav ${burgerCls}` }>
                     <ul className="header__list">
                         {
                             !loading && isAuthenticated
                                 ? <> {
                                     authLinks.map(link => (
                                         <li key={ link.name } className="header__item">
-                                            <Link to={ link.path } className="header__link">{ link.name }</Link>
+                                            <Link onClick={onLinkClick} to={ link.path } className="header__link">{ link.name }</Link>
                                         </li>
                                     ))
                                 }
-                                    <li onClick={ () => setFilter('filter', !filter) } className="header__item">
-                                        <div className={ `header__link header__link-filter ${filterCls}` }></div>
-                                    </li>
                                 </>
                                 : null
                         }
                     </ul>
                 </nav>
+                <div className="header__actions">
+                    {
+                        window.location.pathname === '/jogs'
+                            ? <div onClick={ () => setFilter('filter', !filter) } className={ `header__filter ${filterCls}` }></div>
+                            : null
+                    }
+                    <div onClick={ () => onBurgerClick() } className={ `header__burger ${burgerCls}` }></div>
+                </div>
             </div>
         </header>
     )

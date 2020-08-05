@@ -1,5 +1,13 @@
 import axios from 'axios'
-import { GET_JOGS, GET_JOG, JOG_ERROR, ADD_JOG, SET_JOGS_LOADING, SET_FILTER } from './types'
+import {
+    GET_JOGS,
+    GET_JOG,
+    JOG_ERROR,
+    // ADD_JOG,
+    SET_JOGS_LOADING,
+    SET_FILTER,
+    SET_JOG,
+} from './types'
 
 /* Action creators */
 const getJogsActionCreator = (response) => ({
@@ -11,10 +19,10 @@ const getJogActionCreator = (jog) => ({
     payload: jog
 })
 
-const addJogActionCreator = (jog) => ({
-    type: ADD_JOG,
-    payload: jog
-})
+// const addJogActionCreator = (jog) => ({
+//     type: ADD_JOG,
+//     payload: jog
+// })
 
 const jogErrorActionCreator = (msg, status) => ({
     type: JOG_ERROR,
@@ -30,6 +38,10 @@ const setFilterActionCreator = (name, value) => ({
         name,
         value
     }
+})
+const setJogActionCreator = (jog) => ({
+    type: SET_JOG,
+    payload: jog
 })
 
 /* Actions */
@@ -48,17 +60,16 @@ export const getJogs = () => async dispatch => {
 }
 
 export const getJog = (jogId) => async dispatch => {
-    // dispatch(setJogsLoading(true))
     try {
-
         const res = await axios.get('https://jogtracker.herokuapp.com/api/v1/data/sync')
         dispatch(getJogActionCreator(res.data.response.jogs.find(jog => jog.id.toString() === jogId.toString())))
-        // dispatch(setJogsLoading(false))
-
     } catch (err) {
         dispatch(jogErrorActionCreator(err.response.statusText, err.response.status))
-        // dispatch(setJogsLoading(false))
     }
+}
+
+export const setJog = (jog) => dispatch => {
+    dispatch(setJogActionCreator(jog))
 }
 
 // Add jog
@@ -71,11 +82,10 @@ export const addJog = (formData, history) => async dispatch => {
 
     try {
         dispatch(setJogsLoading(true))
-        const res = await axios.post(`https://jogtracker.herokuapp.com/api/v1/data/jog`, formData, config)
+        await axios.post(`https://jogtracker.herokuapp.com/api/v1/data/jog`, formData, config)
 
-        // dispatch(addJogActionCreator(res.data.response));
         history.push('/jogs')
-        dispatch(setJogsLoading(false))
+        // dispatch(setJogsLoading(false))
     } catch (err) {
         dispatch(jogErrorActionCreator(err.response.statusText, err.response.status))
         dispatch(setJogsLoading(false))
@@ -91,11 +101,9 @@ export const editJog = (formData, history) => async dispatch => {
 
     try {
         dispatch(setJogsLoading(true))
-        const res = await axios.put(`https://jogtracker.herokuapp.com/api/v1/data/jog`, formData, config)
-
-        // dispatch(addJogActionCreator(res.data.response));
+        await axios.put(`https://jogtracker.herokuapp.com/api/v1/data/jog`, formData, config)
         history.push('/jogs')
-        dispatch(setJogsLoading(false))
+        // dispatch(setJogsLoading(false))
     } catch (err) {
         dispatch(jogErrorActionCreator(err.response.statusText, err.response.status))
         dispatch(setJogsLoading(false))

@@ -23,10 +23,12 @@ const App = () => {
     <Provider store={ store }>
       <Router>
         <Header />
-        <Switch>
-          <Route exact path='/' component={ Login } />
-          <Route component={ Routes } />
-        </Switch>
+        <div className="content-wrapper">
+          <Switch>
+            <Route exact path='/' component={ Login } />
+            <Route component={ Routes } />
+          </Switch>
+        </div>
 
       </Router>
     </Provider>
