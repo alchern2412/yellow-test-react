@@ -9,7 +9,6 @@ const AddJog = ({
     addJog,
     history
 }) => {
-    // console.log(history)
     const onSubmit = (formData) => {
         addJog(formData, history)
     }
@@ -17,7 +16,7 @@ const AddJog = ({
         <div className="add-jog">
             <div className="content">
                 <div className="add-jog__wrapper">
-                    <JogForm onSubmit={onSubmit} />
+                    <JogForm onSubmit={ onSubmit } />
                 </div>
             </div>
         </div>

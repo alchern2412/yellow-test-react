@@ -5,3 +5,11 @@
         padding-top: 118px;
     }
 }
+
+@media (max-width: 767px) {
+    .add-jog {
+        .add-jog__wrapper {
+            padding: 25% 25pt;
+        }
+    }
+}
