@@ -39,7 +39,7 @@ export default (state = initialState, action) => {
                 ...state,
                 jogs: [payload, ...state.jogs]
             }
-        case SET_JOG: 
+        case SET_JOG:
             return {
                 ...state,
                 jog: payload

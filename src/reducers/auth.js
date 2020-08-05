@@ -1,4 +1,4 @@
-import { LOGIN_SUCCESS, USER_LOADED } from "../actions/types"
+import { LOGIN_SUCCESS, USER_LOADED, AUTH_ERROR } from "../actions/types"
 
 const initialState = {
     token: localStorage.getItem('token'),
@@ -18,12 +18,18 @@ export default (state = initialState, action) => {
                 isAuthenticated: true,
                 loading: false
             }
-        case USER_LOADED: 
+        case USER_LOADED:
             return {
                 ...state,
                 isAuthenticated: true,
                 user: payload,
                 loading: false
+            }
+        case AUTH_ERROR:
+            return {
+                ...state,
+                isAuthenticated: false,
+                loading: false,
             }
         default:
             return { ...state }
