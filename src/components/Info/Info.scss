@@ -1,20 +1,41 @@
+@import "../../variables.scss";
+
 .info {
     display: flex;
     justify-content: center;
     .info__wrapper {
-        padding-top: 85px;
-        width: 614px;
+        margin-top: 85px;
+        padding: 0 20%;
 
         .info__header {
             margin-bottom: 15px;
             text-transform: uppercase;
-            color: #7ed321
+            color: $apple-green;
         }
 
         .info__text {
             margin-bottom: 50px;
             &:last-child {
                 margin-bottom: 0px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .info {
+        .info__wrapper {
+            margin: 24pt 0pt;
+            padding: 0px 25pt;
+
+            .info__header {
+                margin-bottom: 6px;
+            }
+
+            .info__text {
+                margin-bottom: 25pt;
+                &:last-child {
+                }
             }
         }
     }
