@@ -51,7 +51,7 @@ const Header = ({
                                 ? <> {
                                     authLinks.map(link => (
                                         <li key={ link.name } className="header__item">
-                                            <Link onClick={onLinkClick} to={ link.path } className="header__link">{ link.name }</Link>
+                                            <Link onClick={ onLinkClick } to={ link.path } className="header__link">{ link.name }</Link>
                                         </li>
                                     ))
                                 }
