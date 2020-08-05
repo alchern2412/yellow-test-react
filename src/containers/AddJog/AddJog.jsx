@@ -19,7 +19,6 @@ const AddJog = ({
                     <JogForm onSubmit={onSubmit} />
                 </div>
             </div>
-
         </div>
     )
 }

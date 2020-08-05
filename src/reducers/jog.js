@@ -1,4 +1,4 @@
-import { GET_JOGS, ADD_JOG, SET_JOGS_LOADING, SET_FILTER } from "../actions/types"
+import { GET_JOGS, GET_JOG, ADD_JOG, SET_JOGS_LOADING, SET_FILTER, SET_JOG } from "../actions/types"
 
 const initialState = {
     jogs: null,
@@ -8,7 +8,8 @@ const initialState = {
         filter: false,
         dateFrom: '1970-01-01',
         dateTo: new Date().toISOString().substr(0, 10)
-    }
+    },
+    jog: null
 }
 
 export default (state = initialState, action) => {
@@ -27,12 +28,21 @@ export default (state = initialState, action) => {
                     })
                     : payload.jogs,
                 users: payload.users,
-                // loading: false
+            }
+        case GET_JOG:
+            return {
+                ...state,
+                jog: payload
             }
         case ADD_JOG:
             return {
                 ...state,
                 jogs: [payload, ...state.jogs]
+            }
+        case SET_JOG: 
+            return {
+                ...state,
+                jog: payload
             }
         case SET_JOGS_LOADING:
             return {

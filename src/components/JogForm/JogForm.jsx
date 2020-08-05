@@ -5,14 +5,12 @@ import './JogForm.scss'
 import { useState } from 'react'
 
 const JogForm = ({
-    initialData = {
-        distance: 0,
-        time: 0,
-        date: new Date().toISOString().substr(0, 10)
-    },
+    initialData,
     onSubmit,
 }) => {
-    const [formData, setFormData] = useState(initialData)
+    console.log('initialData', initialData)
+    const [formData, setFormData] = useState(initialData 
+        || { distance: 0, time: 0, date: new Date().toISOString().substr(0, 10) })
 
     const onSubmitForm = e => {
         e.preventDefault()
@@ -68,7 +66,7 @@ const JogForm = ({
                         <div className="jog-form-field__input">
                             <input
                                 className="input jog-form__input"
-                                value={ formData.date }
+                                value={ new Date(formData.date).toISOString().substr(0, 10) }
                                 name="date"
                                 onChange={ e => onChange(e) }
                                 type="date"
@@ -77,7 +75,7 @@ const JogForm = ({
                     </div>
 
                 </div>
-                <input onClick={ onSubmitForm } className="btn jog-form__btn" type="submit" value="Let me in"></input>
+                <input onClick={ onSubmitForm } className="btn jog-form__btn" type="submit" value="Save"></input>
             </div>
         </div>
     )

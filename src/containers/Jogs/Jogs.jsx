@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
@@ -20,7 +20,7 @@ const Jogs = ({
     useEffect(() => {
         getJogs()
         return () => setJogsLoading(true)
-    }, [])
+    }, [getJogs, setJogsLoading])
 
     // const [filter, setFilter] = useState({})
 
@@ -58,32 +58,34 @@ const Jogs = ({
                                         <div className="jogs__list">
                                             {
                                                 jogs.map(jog => (
-                                                    <div key={ jog.id } className="jogs-item">
-                                                        <div className="jogs-item__icon">
-                                                            <img src={ require('../../img/icon.png') } alt="Jog Icon" />
+                                                    <Link key={ jog.id } to={`edit-jog/${jog.id}`}>
+                                                        <div className="jogs-item">
+                                                            <div className="jogs-item__icon">
+                                                                <img src={ require('../../img/icon.png') } alt="Jog Icon" />
+                                                            </div>
+                                                            <div className="jogs-item__info">
+                                                                <div className="jogs-item__date">
+                                                                    <Moment format="DD.MM.YYYY">
+                                                                        { jog.date }
+                                                                    </Moment>
+                                                                </div>
+                                                                <div className="jogs-item__params">
+                                                                    <div className="jogs-item__param-label">Speed:</div>
+                                                                    <div className="jogs-item__param-value">
+                                                                        15
+                                                                </div>
+                                                                </div>
+                                                                <div className="jogs-item__params">
+                                                                    <div className="jogs-item__param-label">Distance:</div>
+                                                                    <div className="jogs-item__param-value">{ jog.distance } km</div>
+                                                                </div>
+                                                                <div className="jogs-item__params">
+                                                                    <div className="jogs-item__param-label">Time:</div>
+                                                                    <div className="jogs-item__param-value">{ jog.time } min</div>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div className="jogs-item__info">
-                                                            <div className="jogs-item__date">
-                                                                <Moment format="DD.MM.YYYY">
-                                                                    { jog.date }
-                                                                </Moment>
-                                                            </div>
-                                                            <div className="jogs-item__params">
-                                                                <div className="jogs-item__param-label">Speed:</div>
-                                                                <div className="jogs-item__param-value">
-                                                                    15
-                                                        </div>
-                                                            </div>
-                                                            <div className="jogs-item__params">
-                                                                <div className="jogs-item__param-label">Distance:</div>
-                                                                <div className="jogs-item__param-value">{ jog.distance } km</div>
-                                                            </div>
-                                                            <div className="jogs-item__params">
-                                                                <div className="jogs-item__param-label">Time:</div>
-                                                                <div className="jogs-item__param-value">{ jog.time } min</div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    </Link>
                                                 ))
                                             }
 

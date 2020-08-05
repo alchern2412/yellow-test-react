@@ -10,16 +10,21 @@ html {
   margin: 0px;
 }
 
-// #root {
-//   height: 100vh;
-// }
-
 *,
 *::before,
 *::after {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit
+  &:hover {
+    border: 0;
+    
+  }
 }
 
 ol,
@@ -38,7 +43,7 @@ img {
 }
 
 .content {
-  // margin-top: 116px;
+
 }
 
 .btn {

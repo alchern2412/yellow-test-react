@@ -15,7 +15,7 @@ export const Routes = () => {
                 <Route exact path="/login" component={Login} />
                 <PrivateRoute exact path="/jogs" component={Jogs} />
                 <PrivateRoute exact path="/add-jog" component={AddJog} />
-                <PrivateRoute exact path="/edit-jog" component={EditJog} />
+                <PrivateRoute exact path="/edit-jog/:jogId" component={EditJog} />
                 <PrivateRoute exact path="/info" component={Info} />
             </Switch>
         </section>
