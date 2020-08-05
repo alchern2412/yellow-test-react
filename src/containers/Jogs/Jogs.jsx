@@ -1,21 +1,46 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
 import PropTypes from 'prop-types'
 import './Jogs.scss'
 import { getJogs } from '../../actions/jog'
+import { Loader } from '../../components/Loader/Loader'
 
 const Jogs = ({
     jogs,
+    loading,
     getJogs
 }) => {
+    // todo filter
+    const [filter, setFilter] = useState({})
+
+    const onChange = (e) => {    
+        const {name, value} = e.target
+        setFilter(prevFilter => ({
+            ...prevFilter,
+            [name]: value
+        }))
+    }
+    
     useEffect(() => {
         getJogs()
     }, [])
+
+    if(!jogs || loading) {
+        return (
+            <div className="jogs">
+                <div className="content">
+                    <Loader />
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="jogs">
             {
+                
                 jogs.length > 0
                     ? (
                         <>
@@ -25,13 +50,13 @@ const Jogs = ({
                                         <div className="jogs__filter-item">
                                             <div className="jogs__filter-label">Date from</div>
                                             <div className="jogs__filter-input">
-                                                <input className="input" type="date" name="dateFrom" />
+                                                <input onChange={onChange} className="input" type="date" name="dateFrom" />
                                             </div>
                                         </div>
                                         <div className="jogs__filter-item">
                                             <div className="jogs__filter-label">Date to</div>
                                             <div className="jogs__filter-input">
-                                                <input className="input" type="date" name="dateTo" />
+                                                <input onChange={onChange} className="input" type="date" name="dateTo" />
                                             </div>
                                         </div>
                                     </div>
@@ -88,17 +113,22 @@ const Jogs = ({
                             </Link>
                         </div>
                     )
+                
             }
         </div>
     )
 }
 
 Jogs.propTypes = {
-    jogs: PropTypes.array.isRequired,
+    jogs: PropTypes.array,
+    loading: PropTypes.bool.isRequired,
+    getJogs: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
-    jogs: state.jog.jogs
+    jogs: state.jog.jogs,
+    loading: state.jog.loading,
+
 })
 
 export default connect(mapStateToProps, { getJogs })(Jogs)

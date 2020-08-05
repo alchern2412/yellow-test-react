@@ -3,7 +3,7 @@ import { LOGIN_SUCCESS, USER_LOADED } from "../actions/types"
 const initialState = {
     token: localStorage.getItem('token'),
     isAuthenticated: false,
-    loading: false,
+    loading: true,
     user: null,
 }
 
@@ -22,7 +22,8 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 isAuthenticated: true,
-                user: payload
+                user: payload,
+                loading: false
             }
         default:
             return { ...state }

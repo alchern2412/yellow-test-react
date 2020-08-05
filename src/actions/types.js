@@ -6,5 +6,6 @@ export const GET_JOGS = 'GET_JOGS'
 export const ADD_JOG = 'ADD_JOG'
 export const EDIT_JOG = 'EDIT_JOG'
 export const JOG_ERROR = 'JOG_ERROR'
+export const SET_JOGS_LOADING = 'SET_JOGS_LOADING'
 // export const USER_LOADED = 'USER_LOADED'
 
