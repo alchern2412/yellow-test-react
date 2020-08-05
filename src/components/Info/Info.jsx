@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import './Info.scss'
 
-const Info = props => {
+const Info = () => {
     return (
         <div className="info">
             <div className="content">
@@ -14,10 +13,6 @@ const Info = props => {
             </div>
         </div>
     )
-}
-
-Info.propTypes = {
-
 }
 
 export default Info

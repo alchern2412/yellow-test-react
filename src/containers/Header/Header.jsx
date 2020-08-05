@@ -17,7 +17,6 @@ const Header = ({
     ]
     return (
         <header className="header">
-            {/* <div className="wrapper"> */ }
             <div className="header__wrapper">
                 <div className="header__logo">
                     <Link to="/">
@@ -44,7 +43,6 @@ const Header = ({
                     </ul>
                 </nav>
             </div>
-            {/* </div> */ }
         </header>
     )
 }

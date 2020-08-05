@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
                 ...state,
                 jogs: payload.jogs,
                 users: payload.users,
-                loading: false
+                // loading: false
             }
         case ADD_JOG:
             return {

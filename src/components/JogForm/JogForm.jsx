@@ -42,19 +42,37 @@ const JogForm = ({
                     <div className="jog-form-field">
                         <div className="jog-form-field__label">Distance</div>
                         <div className="jog-form-field__input">
-                            <input className="input" type="number" value={ formData.distance } name="distance" onChange={ e => onChange(e) } className="jog-form__input" type="text" />
+                            <input
+                                className="input jog-form__input"
+                                type="number"
+                                value={ formData.distance }
+                                name="distance"
+                                onChange={ e => onChange(e) }
+                            />
                         </div>
                     </div>
                     <div className="jog-form-field">
                         <div className="jog-form-field__label">Time</div>
                         <div className="jog-form-field__input">
-                            <input className="input" type="number" value={ formData.time } name="time" onChange={ e => onChange(e) } className="jog-form__input" type="text" />
+                            <input
+                                className="input jog-form__input"
+                                type="number"
+                                value={ formData.time }
+                                name="time"
+                                onChange={ e => onChange(e) }
+                            />
                         </div>
                     </div>
                     <div className="jog-form-field">
                         <div className="jog-form-field__label">Date</div>
                         <div className="jog-form-field__input">
-                            <input className="input" value={ formData.date } name="date" onChange={ e => onChange(e) } className="jog-form__input" type="date" />
+                            <input
+                                className="input jog-form__input"
+                                value={ formData.date }
+                                name="date"
+                                onChange={ e => onChange(e) }
+                                type="date"
+                            />
                         </div>
                     </div>
 
