@@ -20,7 +20,7 @@
             width: 160px;
             height: 150px;
             background: #fff;
-            mask-image: url("../../img/bear-face.svg");
+            mask-image: url("../../img/svg/bear-face.svg");
         }
 
         .login__btn {
@@ -29,4 +29,30 @@
     }
 }
 
+@media (max-width: 767px) {
+    .login {
+        margin: 0;
+        padding: 25% 0;
+        .login-wrapper {
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
 
+            .login__icon {
+                margin-top: 0px;
+            }
+            .login__icon-img {
+                background: #e990f9;
+                mask-image: url("../../img/svg/bear-face.svg");
+            }
+
+            .login__btn {
+                button {
+                    color: #e990f9;
+                    border-radius: 36px;
+                    border: solid 3px #e990f9;
+                }
+            }
+        }
+    }
+}

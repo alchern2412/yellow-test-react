@@ -10,7 +10,6 @@ const Login = ({
     login
 }) => {
     const onLogin = () => {
-        console.log('onLogin')
         login()
     }
     if (isAuthenticated) {
@@ -24,7 +23,13 @@ const Login = ({
                         <div className="login__icon-img"></div>
                     </div>
                     <div className="login__btn">
-                        <button onClick={(e) => onLogin()} className="btn" type="button" value="Let me in">Let me in</button>
+                        <button
+                            onClick={ (e) => onLogin() }
+                            className="btn"
+                            type="button"
+                        >
+                            Let me in
+                        </button>
                     </div>
                 </div>
             </div>
