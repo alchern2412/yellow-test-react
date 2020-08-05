@@ -3,7 +3,6 @@ import {
     GET_JOGS,
     GET_JOG,
     JOG_ERROR,
-    // ADD_JOG,
     SET_JOGS_LOADING,
     SET_FILTER,
     SET_JOG,
@@ -18,11 +17,6 @@ const getJogActionCreator = (jog) => ({
     type: GET_JOG,
     payload: jog
 })
-
-// const addJogActionCreator = (jog) => ({
-//     type: ADD_JOG,
-//     payload: jog
-// })
 
 const jogErrorActionCreator = (msg, status) => ({
     type: JOG_ERROR,
@@ -85,7 +79,6 @@ export const addJog = (formData, history) => async dispatch => {
         await axios.post(`https://jogtracker.herokuapp.com/api/v1/data/jog`, formData, config)
 
         history.push('/jogs')
-        // dispatch(setJogsLoading(false))
     } catch (err) {
         dispatch(jogErrorActionCreator(err.response.statusText, err.response.status))
         dispatch(setJogsLoading(false))
@@ -103,7 +96,6 @@ export const editJog = (formData, history) => async dispatch => {
         dispatch(setJogsLoading(true))
         await axios.put(`https://jogtracker.herokuapp.com/api/v1/data/jog`, formData, config)
         history.push('/jogs')
-        // dispatch(setJogsLoading(false))
     } catch (err) {
         dispatch(jogErrorActionCreator(err.response.statusText, err.response.status))
         dispatch(setJogsLoading(false))
