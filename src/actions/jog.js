@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { GET_JOGS, JOG_ERROR, ADD_JOG, SET_JOGS_LOADING } from './types'
+import { GET_JOGS, JOG_ERROR, ADD_JOG, SET_JOGS_LOADING, SET_FILTER } from './types'
 
 /* Action creators */
 const getJogsActionCreator = (response) => ({
@@ -17,6 +17,14 @@ const jogErrorActionCreator = (msg, status) => ({
     payload: {
         msg,
         status
+    }
+})
+
+const setFilterActionCreator = (name, value) => ({
+    type: SET_FILTER,
+    payload: {
+        name,
+        value
     }
 })
 
@@ -64,6 +72,7 @@ export const setJogsLoading = loading => dispatch => {
     })
 }
 
-export const setFilter = (dateFrom, dateTo) => dispatch => {
-
+export const setFilter = (name, value) => async dispatch => {
+    dispatch(setFilterActionCreator(name, value))
+    dispatch(getJogs())
 }

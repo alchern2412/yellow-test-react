@@ -1,9 +1,14 @@
-import { GET_JOGS, ADD_JOG, SET_JOGS_LOADING } from "../actions/types"
+import { GET_JOGS, ADD_JOG, SET_JOGS_LOADING, SET_FILTER } from "../actions/types"
 
 const initialState = {
     jogs: null,
     users: [],
-    loading: true
+    loading: true,
+    filter: {
+        filter: false,
+        dateFrom: '1970-01-01',
+        dateTo: new Date().toISOString().substr(0, 10)
+    }
 }
 
 export default (state = initialState, action) => {
@@ -12,7 +17,15 @@ export default (state = initialState, action) => {
         case GET_JOGS:
             return {
                 ...state,
-                jogs: payload.jogs,
+                jogs: state.filter.filter
+                    ? payload.jogs.filter(jog => {
+                        const jogDate = +new Date(jog.date)
+                        const dateFrom = +new Date(state.filter.dateFrom)
+                        const dateTo = +new Date(state.filter.dateTo)
+
+                        return jogDate >= dateFrom && jogDate <= dateTo
+                    })
+                    : payload.jogs,
                 users: payload.users,
                 // loading: false
             }
@@ -25,6 +38,14 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loading: payload
+            }
+        case SET_FILTER:
+            return {
+                ...state,
+                filter: {
+                    ...state.filter,
+                    [payload.name]: payload.value
+                }
             }
         default:
             return {

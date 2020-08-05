@@ -3,18 +3,26 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './Header.scss'
+import { setFilter } from '../../actions/jog'
 
 const Header = ({
     auth: {
         isAuthenticated,
         loading
-    }
+    },
+    filter: {
+        filter
+    },
+    setFilter
 }) => {
     const authLinks = [
         { name: 'Jogs', path: '/jogs' },
         { name: 'Info', path: '/info' },
         { name: 'Contact Us', path: '/contact-us' },
     ]
+
+    const filterCls = filter ? 'active' : ''
+
     return (
         <header className="header">
             <div className="header__wrapper">
@@ -34,8 +42,8 @@ const Header = ({
                                         </li>
                                     ))
                                 }
-                                    <li className="header__item">
-                                        <div className="header__link header__link-filter"></div>
+                                    <li onClick={ () => setFilter('filter', !filter) } className="header__item">
+                                        <div className={ `header__link header__link-filter ${filterCls}` }></div>
                                     </li>
                                 </>
                                 : null
@@ -48,11 +56,14 @@ const Header = ({
 }
 
 Header.propTypes = {
-    auth: PropTypes.object.isRequired
+    auth: PropTypes.object.isRequired,
+    filter: PropTypes.object.isRequired,
+    setFilter: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    filter: state.jog.filter
 })
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps, { setFilter })(Header)
