@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import './JogForm.scss'
@@ -8,13 +8,11 @@ const JogForm = ({
     initialData,
     onSubmit,
 }) => {
-    console.log('initialData', initialData)
-    const [formData, setFormData] = useState(initialData 
+    const [formData, setFormData] = useState(initialData
         || { distance: 0, time: 0, date: new Date().toISOString().substr(0, 10) })
 
     const onSubmitForm = e => {
         e.preventDefault()
-        console.log('submit', formData)
         onSubmit(formData)
     }
 
@@ -25,10 +23,6 @@ const JogForm = ({
             [name]: value
         }))
     }
-
-    useEffect(() => {
-        console.log('formData', formData);
-    }, [formData])
 
     return (
         <div className="jog-form">
@@ -75,7 +69,13 @@ const JogForm = ({
                     </div>
 
                 </div>
-                <input onClick={ onSubmitForm } className="btn jog-form__btn" type="submit" value="Save"></input>
+                <input
+                    onClick={ onSubmitForm }
+                    className="btn jog-form__btn"
+                    type="submit"
+                    value="Save"
+                >
+                </input>
             </div>
         </div>
     )
