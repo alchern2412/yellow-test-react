@@ -1,10 +1,11 @@
 import React from 'react'
 import spinner from '../../img/loader.gif'
+import './Loader.scss'
 
 export const Loader = () => (
     <img
+        className="loader"
         src={ spinner }
-        style={ { width: '200px', margin: '0 auto', display: 'block' } }
         alt='Loading...'
     />
 )
