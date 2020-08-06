@@ -8,8 +8,9 @@ const JogForm = ({
     initialData,
     onSubmit,
 }) => {
-    const [formData, setFormData] = useState(initialData
-        || { distance: 0, time: 0, date: new Date().toISOString().substr(0, 10) })
+    const init = initialData ? { ...initialData, date: initialData.date * 1000 } : null
+    const [formData, setFormData] = useState(init
+        || { distance: 0, time: 0, date: new Date().getTime() / 1000 })
 
     const onSubmitForm = e => {
         e.preventDefault()
