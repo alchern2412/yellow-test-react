@@ -7,7 +7,7 @@ import './Jogs.scss'
 import { getJogs, setJogsLoading, setFilter } from '../../actions/jog'
 import { Loader } from '../../components/Loader/Loader'
 
-const Jogs = ({
+export const Jogs = ({
     jogs,
     loading,
     filter,

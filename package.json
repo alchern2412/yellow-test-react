@@ -44,5 +44,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://jogtracker.herokuapp.com"
+  "proxy": "https://jogtracker.herokuapp.com",
+  "devDependencies": {
+    "react-test-renderer": "^16.13.1"
+  }
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import './Info.scss'
 
-const Info = () => {
+export const Info = () => {
     return (
         <div className="info">
             <div className="content">
