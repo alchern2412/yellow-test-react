@@ -62,7 +62,7 @@ export const Jogs = ({
                                                             <div className="jogs-item__info">
                                                                 <div className="jogs-item__date">
                                                                     <Moment format="DD.MM.YYYY">
-                                                                        { jog.date }
+                                                                        { new Date(jog.date * 1000) }
                                                                     </Moment>
                                                                 </div>
                                                                 <div className="jogs-item__params">

@@ -20,7 +20,7 @@ export default (state = initialState, action) => {
                 ...state,
                 jogs: state.filter.filter
                     ? payload.jogs.filter(jog => {
-                        const jogDate = +new Date(jog.date)
+                        const jogDate = +new Date(jog.date * 1000)
                         const dateFrom = +new Date(state.filter.dateFrom)
                         const dateTo = +new Date(state.filter.dateTo)
 
